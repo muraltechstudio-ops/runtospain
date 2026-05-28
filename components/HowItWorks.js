@@ -7,26 +7,30 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section id="comment" className="py-24 px-4 bg-brand-dark">
+    <section id="comment" className="py-28 px-6 bg-brand-dark">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-brand-red font-semibold tracking-widest uppercase text-sm mb-3">Simple comme bonjour</p>
-          <h2 className="font-display text-5xl md:text-7xl text-white">COMMENT ÇA MARCHE ?</h2>
+        <div className="text-center mb-20">
+          <p className="text-brand-red font-semibold tracking-widest uppercase text-sm mb-4">
+            Simple comme bonjour
+          </p>
+          <h2 className="font-display text-5xl md:text-7xl text-white">
+            COMMENT ÇA MARCHE ?
+          </h2>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 gap-8">
           {steps.map((s, i) => (
-            <div key={i} className="relative bg-brand-card rounded-2xl p-6 border border-white/5 hover:border-brand-red/30 transition group">
-              <div className="font-display text-7xl text-white/5 group-hover:text-brand-red/10 transition absolute top-4 right-4">{s.n}</div>
-              <div className="text-4xl mb-4">{s.icon}</div>
-              <h3 className="font-bold text-white text-lg mb-2">{s.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+            <div key={i} className="relative bg-brand-card rounded-2xl p-8 border border-white/6 hover:border-brand-red/40 transition-all duration-300 ease-in-out group">
+              <div className="font-display text-7xl text-white/6 group-hover:text-brand-red/15 transition-all duration-300 absolute top-4 right-4">{s.n}</div>
+              <div className="text-5xl mb-6">{s.icon}</div>
+              <h3 className="font-bold text-white text-xl mb-3">{s.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 bg-brand-card rounded-2xl p-8 border border-white/5">
-          <h3 className="font-display text-3xl text-white mb-6 text-center">L'ITINÉRAIRE</h3>
+        <div className="mt-20 bg-brand-card rounded-2xl p-10 border border-white/6">
+          <h3 className="font-display text-3xl md:text-4xl text-white mb-8 text-center">L'ITINÉRAIRE</h3>
           <div className="flex flex-col md:flex-row items-center justify-center gap-0">
             {[
               { ville: 'Montpellier', heure: '06h00', flag: '🏙️' },
@@ -36,13 +40,15 @@ export default function HowItWorks() {
               { ville: 'Retour', heure: '~19h00', flag: '🏠' },
             ].map((stop, i, arr) => (
               <div key={i} className="flex flex-col md:flex-row items-center">
-                <div className="text-center px-4 py-2">
-                  <div className="text-2xl mb-1">{stop.flag}</div>
-                  <div className="text-white font-semibold text-sm">{stop.ville}</div>
-                  <div className="text-brand-orange text-xs">{stop.heure}</div>
+                <div className="text-center px-4 py-3">
+                  <div className="text-3xl mb-2">{stop.flag}</div>
+                  <div className="text-white font-semibold text-base">{stop.ville}</div>
+                  <div className="text-brand-orange text-sm">{stop.heure}</div>
                 </div>
                 {i < arr.length - 1 && (
-                  <div className="text-brand-red text-2xl md:rotate-0 rotate-90 mx-1">→</div>
+                  <div className="text-brand-red text-3xl md:rotate-0 rotate-90 mx-2">
+                    →
+                  </div>
                 )}
               </div>
             ))}
