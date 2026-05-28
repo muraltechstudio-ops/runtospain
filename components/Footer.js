@@ -19,7 +19,7 @@ export default function Footer() {
               💬 WhatsApp
             </a>
             <a href="mailto:contact@runtospain.com"
-              className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold px-8 py-4 rounded-full text-lg transition">
+              className="flex items-center justify-center gap-3 bg-brand-dark/5 hover:bg-brand-dark/10 border border-white/20 text-white font-semibold px-8 py-4 rounded-full text-lg transition">
               ✉️ contact@runtospain.com
             </a>
           </div>

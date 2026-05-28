@@ -32,7 +32,7 @@ export default function SortiesPreview() {
                 <div className="p-6">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {s.destinations.map(d => (
-                      <span key={d} className="text-xs bg-white/5 text-gray-300 px-3 py-1 rounded-full">🇪🇸 {d}</span>
+                      <span key={d} className="text-xs bg-brand-dark/5 text-gray-300 px-3 py-1 rounded-full">🇪🇸 {d}</span>
                     ))}
                   </div>
 
@@ -52,7 +52,7 @@ export default function SortiesPreview() {
                         {s.placesRestantes}/{s.placesTotal}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-brand-dark/10 rounded-full overflow-hidden">
                       <div className={`h-full rounded-full ${urgence ? 'bg-brand-red' : 'bg-green-400'}`}
                         style={{ width: `${pct}%` }} />
                     </div>

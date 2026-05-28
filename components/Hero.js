@@ -2,64 +2,87 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain">
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-[#1a0a0a] to-[#0a0a1a]" />
-      <div className="absolute top-0 right-0 w-1/2 h-full opacity-10"
-        style={{ background: 'linear-gradient(135deg, transparent 40%, #E63024 40%, #F97316 60%, transparent 60%)' }} />
-      <div className="absolute top-20 left-10 w-64 h-64 rounded-full blur-3xl opacity-10 bg-brand-red" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full blur-3xl opacity-10 bg-brand-orange" />
+    <section className="relative min-h-screen flex items-center overflow-hidden">
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 fade-up">
-          <span className="w-2 h-2 rounded-full bg-green-400 pulse-red" />
-          <span className="text-sm text-gray-300">Départ depuis Montpellier · Sète · Béziers</span>
-        </div>
+      {/* Image de fond SANS dégradé */}
+      <div className="absolute inset-0">
+        <img
+          src="https://i.postimg.cc/grbbQ5TJ/seedream-4-high-res-fal-a-il-me-faut-la-meme-i.jpg"
+          alt="Excursion Espagne RunToSpain"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Juste un léger fondu en haut pour la navbar */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
+      </div>
 
-        <h1 className="font-display text-[clamp(4rem,14vw,10rem)] leading-none tracking-wide mb-6 fade-up delay-1">
-          <span className="text-white">L'ESPAGNE </span>
-          <span className="text-brand-red">EN UN JOUR</span>
-        </h1>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
+        <div className="max-w-2xl">
 
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-4 fade-up delay-2">
-          Excursions à la journée vers <strong className="text-white">La Jonquera</strong>,
-          le <strong className="text-white">Mercado El Pertús</strong> et
-          <strong className="text-white"> Empuriabrava</strong>.<br/>
-          Départ tôt le matin, retour le soir. Zéro stress.
-        </p>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-0.5 bg-brand-red" />
+            <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase bg-black/40 backdrop-blur px-2 py-1">
+              Excursion à la journée · Chaque dimanche
+            </span>
+          </div>
 
-        <div className="inline-block bg-brand-red/20 border border-brand-red/40 rounded-2xl px-6 py-3 mb-10 fade-up delay-3">
-          <span className="text-brand-orange font-display text-5xl">49€</span>
-          <span className="text-gray-300 text-lg ml-2">/ personne — Aller-Retour</span>
-        </div>
+          <h1 className="font-display leading-[0.9] mb-6">
+            <span className="block text-[clamp(3.5rem,9vw,7rem)] text-white drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>L'ESPAGNE</span>
+            <span className="block text-[clamp(3.5rem,9vw,7rem)] text-brand-red drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>EN UN JOUR</span>
+            <span className="block text-[clamp(1.2rem,3vw,2rem)] text-white font-body font-normal tracking-widest mt-3 drop-shadow-xl" style={{textShadow:'1px 1px 10px rgba(0,0,0,0.9)'}}>
+              La Jonquera · Mercado El Pertús
+            </span>
+          </h1>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center fade-up delay-4">
-          <Link href="/sorties"
-            className="bg-brand-red hover:bg-red-600 text-white font-bold px-10 py-4 rounded-full text-lg transition-all hover:scale-105 shadow-lg shadow-red-900/40">
-            Voir les prochaines sorties →
-          </Link>
-          <a href="https://wa.me/33600000000?text=Bonjour%2C%20je%20voudrais%20réserver%20une%20place"
-            target="_blank" rel="noopener noreferrer"
-            className="bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold px-10 py-4 rounded-full text-lg transition-all">
-            💬 WhatsApp
-          </a>
-        </div>
+          <p className="text-white text-lg leading-relaxed mb-8 max-w-xl bg-black/30 backdrop-blur-sm p-4 rounded">
+            Partez faire vos courses en Espagne depuis <strong>Montpellier, Sète ou Béziers</strong>.
+            Alcools, parfums, vêtements, électronique… jusqu'à <strong className="text-brand-orange">-60% moins cher</strong> qu'en France.
+            Retour le soir, zéro stress.
+          </p>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-14 fade-up delay-4">
-          {[
-            { icon: '🛡️', text: 'Conducteur professionnel certifié' },
-            { icon: '🇪🇺', text: 'Pas de droits de douane EU' },
-            { icon: '💳', text: 'Paiement sécurisé en ligne' },
-            { icon: '📍', text: '3 points de départ' },
-          ].map(b => (
-            <div key={b.text} className="flex items-center gap-2 text-sm text-gray-400">
-              <span>{b.icon}</span>
-              <span>{b.text}</span>
+          <div className="flex items-end gap-4 mb-8">
+            <div className="bg-black/40 backdrop-blur p-4 rounded">
+              <div className="text-gray-300 text-xs tracking-widest uppercase mb-1">Prix unique A/R</div>
+              <div className="font-display text-9xl text-white leading-none drop-shadow-2xl">
+                49<span className="text-brand-red text-5xl align-top mt-4 inline-block">€</span>
+              </div>
             </div>
-          ))}
+            <div className="pb-4 text-white text-sm leading-relaxed drop-shadow-xl font-bold">
+              Bagages<br/>inclus<br/>✓
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <Link href="/sorties"
+              className="bg-brand-red hover:bg-red-700 text-white font-bold px-10 py-4 text-lg transition-all hover:scale-105 shadow-2xl text-center">
+              Voir les prochaines sorties →
+            </Link>
+            <a href="https://wa.me/33600000000?text=Bonjour%2C%20je%20voudrais%20réserver%20une%20place"
+              target="_blank" rel="noopener noreferrer"
+              className="border-2 border-white text-white font-semibold px-10 py-4 text-lg transition-all text-center flex items-center justify-center gap-2 backdrop-blur-sm bg-black/30">
+              💬 Réserver par WhatsApp
+            </a>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              { icon: '🛡️', text: 'Permis D International' },
+              { icon: '💳', text: 'Paiement Stripe & PayPal' },
+              { icon: '↩️', text: 'Remboursé si annulation' },
+              { icon: '⭐', text: '4.9/5 — 47 avis' },
+            ].map(b => (
+              <div key={b.text} className="flex items-center gap-2 bg-black/50 backdrop-blur px-3 py-2 border border-white/20">
+                <span className="text-sm">{b.icon}</span>
+                <span className="text-white text-xs font-medium">{b.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-500 animate-bounce text-sm">↓</div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <div className="w-px h-10 bg-gradient-to-b from-transparent to-white animate-pulse" />
+        <span className="text-white text-xs tracking-widest uppercase drop-shadow-xl">Découvrir</span>
+      </div>
     </section>
   )
 }

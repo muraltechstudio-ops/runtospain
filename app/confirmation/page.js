@@ -58,7 +58,7 @@ export default function ConfirmationPage({ searchParams }) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/"
-              className="bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold px-8 py-3 rounded-full transition">
+              className="bg-brand-dark/5 hover:bg-brand-dark/10 border border-white/20 text-white font-semibold px-8 py-3 rounded-full transition">
               Retour à l'accueil
             </Link>
             <a href="https://wa.me/33600000000"

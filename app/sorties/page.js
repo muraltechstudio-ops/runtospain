@@ -37,12 +37,12 @@ export default function SortiesPage() {
                         </div>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {s.destinations.map(d => (
-                            <span key={d} className="text-xs bg-white/5 text-gray-300 px-3 py-1 rounded-full">🇪🇸 {d}</span>
+                            <span key={d} className="text-xs bg-brand-dark/5 text-gray-300 px-3 py-1 rounded-full">🇪🇸 {d}</span>
                           ))}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
                           {s.departs.map(d => (
-                            <div key={d.ville} className="bg-white/5 rounded-xl p-3">
+                            <div key={d.ville} className="bg-brand-dark/5 rounded-xl p-3">
                               <div className="text-brand-orange font-bold text-sm">{d.heure}</div>
                               <div className="text-white text-sm font-medium">{d.ville}</div>
                               <div className="text-gray-500 text-xs">{d.lieu}</div>
@@ -63,8 +63,8 @@ export default function SortiesPage() {
                             <span>{s.placesRestantes} place{s.placesRestantes > 1 ? 's' : ''}</span>
                             <span>{s.placesTotal} max</span>
                           </div>
-                          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                            <div className={`h-full rounded-full ${complet ? 'bg-gray-500' : urgence ? 'bg-brand-red' : 'bg-green-400'}`}
+                          <div className="h-1.5 bg-brand-dark/10 rounded-full overflow-hidden">
+                            <div className={`h-full rounded-full ${complet ? 'bg-[#0d0f18]0' : urgence ? 'bg-brand-red' : 'bg-green-400'}`}
                               style={{ width: `${100 - pct}%` }} />
                           </div>
                         </div>
