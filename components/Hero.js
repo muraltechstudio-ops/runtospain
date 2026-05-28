@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-20 w-full">
         <div className="max-w-2xl">
 
           <div className="flex items-center gap-3 mb-6">
@@ -25,7 +25,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display leading-[0.9] mb-6">
+          <h1 className="font-display leading-[0.85] mb-8">
             <span className="block text-[clamp(3.5rem,9vw,7rem)] text-white drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>L'ESPAGNE</span>
             <span className="block text-[clamp(3.5rem,9vw,7rem)] text-brand-red drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>EN UN JOUR</span>
             <span className="block text-[clamp(1.2rem,3vw,2rem)] text-white font-body font-normal tracking-widest mt-3 drop-shadow-xl" style={{textShadow:'1px 1px 10px rgba(0,0,0,0.9)'}}>
@@ -33,7 +33,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-white text-lg leading-relaxed mb-8 max-w-xl bg-black/30 backdrop-blur-sm p-4 rounded">
+          <p className="text-white text-lg leading-relaxed mb-10 max-w-xl bg-black/30 backdrop-blur-sm p-6 rounded-lg">
             Partez faire vos courses en Espagne depuis <strong>Montpellier, Sète ou Béziers</strong>.
             Alcools, parfums, vêtements, électronique… jusqu'à <strong className="text-brand-orange">-60% moins cher</strong> qu'en France.
             Retour le soir, zéro stress.
@@ -53,12 +53,12 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Link href="/sorties"
-              className="bg-brand-red hover:bg-red-700 text-white font-bold px-10 py-4 text-lg transition-all hover:scale-105 shadow-2xl text-center">
+              className="bg-brand-red hover:bg-red-700 text-white font-bold px-10 py-4 text-lg transition-transform transition-colors duration-200 ease-soft hover:scale-105 shadow-2xl shadow-red-900/20 hover:shadow-red-900/30 text-center">
               Voir les prochaines sorties →
             </Link>
             <a href="https://wa.me/33600000000?text=Bonjour%2C%20je%20voudrais%20réserver%20une%20place"
               target="_blank" rel="noopener noreferrer"
-              className="border-2 border-white text-white font-semibold px-10 py-4 text-lg transition-all text-center flex items-center justify-center gap-2 backdrop-blur-sm bg-black/30">
+              className="border-2 border-white text-white font-semibold px-10 py-4 text-lg transition-transform transition-colors duration-200 ease-soft text-center flex items-center justify-center gap-2 backdrop-blur-sm bg-black/30">
               💬 Réserver par WhatsApp
             </a>
           </div>
