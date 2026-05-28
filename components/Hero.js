@@ -4,15 +4,15 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* Image de fond SANS dégradé */}
+      {/* Image de fond avec overlay plus sombre pour améliorer la lisibilité */}
       <div className="absolute inset-0">
         <img
           src="https://i.postimg.cc/grbbQ5TJ/seedream-4-high-res-fal-a-il-me-faut-la-meme-i.jpg"
           alt="Excursion Espagne RunToSpain"
           className="w-full h-full object-cover object-center"
         />
-        {/* Juste un léger fondu en haut pour la navbar */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
+        {/* Overlay plus sombre : noir 60 % en haut, s’atténuant vers le bas */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-20 w-full">
