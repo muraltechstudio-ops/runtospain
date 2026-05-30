@@ -74,11 +74,11 @@ export default function Footer() {
             </div>
             <div className="space-y-4">
               {[
-                { q: ‘Que puis-je acheter en Espagne ?’, r: ‘Tout ce que vous voulez pour usage personnel : vêtements, alimentation, cosmétiques, électronique, alcool et tabac dans les limites légales.’ },
-                { q: ‘Quelles sont les limites douanières ?’, r: ‘Tabac : 4 cartouches de cigarettes OU 1kg de tabac à rouler. Alcool : 10L de vin OU 20L de spiritueux. IMPORTANT : Ne pas dépasser ces limites pour éviter le blocage du véhicule et perturber le voyage des autres personnes !’ },
-                { q: ‘Les courses sont-elles incluses ?’, r: ‘Non, le prix de 49 € couvre uniquement le transport A/R. Vos achats sont à votre charge.’ },
-                { q: ‘Puis-je annuler ma réservation ?’, r: ‘Oui, remboursement intégral jusqu\’à 7 jours avant la sortie. Voir nos CGV pour le détail.’ },
-                { q: ‘Le conducteur est-il professionnel ?’, r: ‘Oui, titulaire du permis D international et carte VTC. Vous êtes en sécurité.’ },
+                { q: 'Que puis-je acheter en Espagne ?', r: 'Tout ce que vous voulez pour usage personnel : vêtements, alimentation, cosmétiques, électronique, alcool et tabac dans les limites légales.' },
+                { q: 'Quelles sont les limites douanières ?', r: 'Tabac : 4 cartouches de cigarettes OU 1kg de tabac à rouler. Alcool : 10L de vin OU 20L de spiritueux. IMPORTANT : Ne pas dépasser ces limites pour éviter le blocage du véhicule et perturber le voyage des autres personnes !' },
+                { q: 'Les courses sont-elles incluses ?', r: 'Non, le prix de 49 € couvre uniquement le transport A/R. Vos achats sont à votre charge.' },
+                { q: 'Puis-je annuler ma réservation ?', r: 'Oui, remboursement intégral jusqu\'à 7 jours avant la sortie. Voir nos CGV pour le détail.' },
+                { q: 'Le conducteur est-il professionnel ?', r: 'Oui, titulaire du permis D international et carte VTC. Vous êtes en sécurité.' },
               ].map((item, i) => (
                 <details key={i} className="group border-b border-white/5 pb-4 last:border-0 last:pb-0">
                   <summary className="text-gray-300 cursor-pointer list-none flex items-center justify-between hover:text-white transition font-bold text-sm">
