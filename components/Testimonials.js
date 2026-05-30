@@ -1,8 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Star, ShieldCheck, Lock, CreditCard, RotateCcw } from 'lucide-react'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function Testimonials() {
+  const { t } = useTranslation()
   const avis = [
     {
       nom: "Marie-Claire D.",
@@ -59,26 +61,26 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="flex items-center gap-4 mb-4"
         >
           <div className="w-8 h-px bg-brand-red" />
-          <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase">Ils en parlent mieux que nous</span>
+          <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase">{t('testim.subtitle')}</span>
         </motion.div>
-        
+
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="font-display text-5xl md:text-7xl text-white"
           >
-            ILS SONT<br/>REVENUS CONQUIS
+            {t('testim.title')}
           </motion.h2>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -88,8 +90,8 @@ export default function Testimonials() {
               {[1,2,3,4,5].map(i => <Star key={i} size={20} fill="currentColor" />)}
             </div>
             <div>
-              <div className="text-white font-bold text-lg">4.9/5</div>
-              <div className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">Sur 47 avis vérifiés</div>
+              <div className="text-white font-bold text-lg">{t('testim.rating')}</div>
+              <div className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t('testim.reviews', { n: '47' })}</div>
             </div>
           </motion.div>
         </div>
@@ -97,8 +99,8 @@ export default function Testimonials() {
         {/* Grid avis */}
         <div className="grid md:grid-cols-3 gap-6 mb-20">
           {avis.map((a, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -108,7 +110,7 @@ export default function Testimonials() {
               <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity text-6xl">
                 {a.emoji}
               </div>
-              
+
               <div className="flex items-center gap-1 mb-6 text-yellow-500">
                 {Array.from({ length: a.note }).map((_, j) => (
                   <Star key={j} size={14} fill="currentColor" />
@@ -129,21 +131,21 @@ export default function Testimonials() {
         </div>
 
         {/* Réassurance paiement */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="rounded-[2.5rem] p-10 bg-brand-card border border-white/5 relative overflow-hidden"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-brand-red to-transparent opacity-30" />
-          
+
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <Lock size={16} className="text-brand-red" />
-                <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase">Paiement 100% sécurisé</span>
+                <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase">{t('testim.trustSecure')}</span>
               </div>
-              <h3 className="font-display text-4xl text-white">RÉSERVEZ EN TOUTE CONFIANCE</h3>
+              <h3 className="font-display text-4xl text-white">{t('testim.trustTitle')}</h3>
             </div>
             <div className="flex items-center gap-6 opacity-50 grayscale hover:grayscale-0 transition-all">
               <img src="https://i.postimg.cc/85zX3S0p/Stripe-Logo-v2.png" alt="Stripe" className="h-6" />
@@ -153,26 +155,10 @@ export default function Testimonials() {
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              {
-                icon: <ShieldCheck className="text-brand-red" size={32} />,
-                title: 'Cryptage SSL',
-                desc: 'Toutes vos données sont chiffrées de bout en bout.'
-              },
-              {
-                icon: <CreditCard className="text-brand-red" size={32} />,
-                title: 'Stripe',
-                desc: 'Leader mondial du paiement sécurisé par carte.'
-              },
-              {
-                icon: <CreditCard className="text-brand-orange" size={32} />,
-                title: 'PayPal',
-                desc: 'Payez avec votre compte PayPal en toute simplicité.'
-              },
-              {
-                icon: <RotateCcw className="text-green-500" size={32} />,
-                title: 'Remboursement',
-                desc: 'Annulation possible jusqu\'à 7 jours avant le départ.'
-              },
+              { icon: <ShieldCheck className="text-brand-red" size={32} />, title: t('testim.ssl'), desc: t('testim.sslDesc') },
+              { icon: <CreditCard className="text-brand-red" size={32} />, title: t('testim.stripe'), desc: t('testim.stripeDesc') },
+              { icon: <CreditCard className="text-brand-orange" size={32} />, title: t('testim.paypal'), desc: t('testim.paypalDesc') },
+              { icon: <RotateCcw className="text-green-500" size={32} />, title: t('testim.refund'), desc: t('testim.refundDesc') },
             ].map((r, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 <div className="mb-4 p-4 bg-white/5 rounded-2xl group-hover:scale-110 transition-transform border border-white/5">{r.icon}</div>
@@ -186,24 +172,12 @@ export default function Testimonials() {
         {/* Certifications conducteur */}
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           {[
-            {
-              icon: '🪪',
-              title: 'Permis D International',
-              desc: 'Habilité à conduire des autobus et autocars en Europe.'
-            },
-            {
-              icon: '🚖',
-              title: 'Carte Professionnelle VTC',
-              desc: 'Chauffeur certifié avec casier judiciaire vierge.'
-            },
-            {
-              icon: '🛡️',
-              title: 'Assurance Professionnelle',
-              desc: 'Couverture RC transport de personnes pour chaque sortie.'
-            },
+            { icon: '🪪', title: t('testim.certif.permis'), desc: 'Habilité à conduire des autobus et autocars en Europe.' },
+            { icon: '🚖', title: t('testim.certif.vtc'), desc: t('testim.certif.vtcDesc') },
+            { icon: '🛡️', title: t('testim.certif.assurance'), desc: t('testim.certif.assuranceDesc') },
           ].map((c, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}

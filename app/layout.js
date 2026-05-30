@@ -1,5 +1,6 @@
 import { Bebas_Neue, DM_Sans } from 'next/font/google'
 import './globals.css'
+import ClientLayout from './ClientLayout'
 
 const display = Bebas_Neue({
   weight: '400',
@@ -21,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${display.variable} ${body.variable}`}>
       <body className="bg-brand-dark text-white font-body antialiased">
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )

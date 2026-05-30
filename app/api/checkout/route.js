@@ -5,7 +5,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 export async function POST(request) {
   try {
-    const { sortieId, places, client } = await request.json()
+    const { sortieId, places, client, locale } = await request.json()
     const sortie = getSortie(sortieId)
 
     if (!sortie) return Response.json({ error: 'Sortie introuvable' }, { status: 404 })
@@ -14,7 +14,7 @@ export async function POST(request) {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
-      locale: 'fr',
+      locale: locale || 'fr',
       customer_email: client.email,
       line_items: [{
         price_data: {

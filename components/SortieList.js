@@ -1,8 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function SortieList({ sorties }) {
+  const { t } = useTranslation()
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -40,8 +42,8 @@ export default function SortieList({ sorties }) {
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-4">
                     <h2 className="text-white font-bold text-2xl tracking-tight">{s.label}</h2>
-                    {complet && <span className="bg-white/10 text-gray-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/5">Complet</span>}
-                    {urgence && <span className="bg-brand-red text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full pulse-red">⚡ Dernières places</span>}
+                    {complet && <span className="bg-white/10 text-gray-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/5">{t('sl.complet')}</span>}
+                    {urgence && <span className="bg-brand-red text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full pulse-red">{t('sl.lastSeats')}</span>}
                   </div>
                   
                   <div className="flex flex-wrap gap-2 mb-8">
@@ -62,14 +64,14 @@ export default function SortieList({ sorties }) {
                   
                   <div className="flex items-center gap-3 text-gray-500 text-[11px] font-bold uppercase tracking-widest">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
-                    Retour estimé : <span className="text-white">{s.retourEstime}</span>
+                    {t('sl.returnEstimate', { time: s.retourEstime })}
                   </div>
                 </div>
 
                 <div className="flex flex-col items-center gap-6 min-w-[200px] bg-white/5 p-8 rounded-3xl border border-white/5">
                   <div className="text-center">
                     <div className="font-display text-6xl text-white leading-none mb-2">{s.prix}€</div>
-                    <div className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">Prix unique A/R</div>
+                    <div className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">{t('sl.priceLabel')}</div>
                   </div>
                   
                   <div className="w-full">
@@ -88,11 +90,11 @@ export default function SortieList({ sorties }) {
                   </div>
 
                   {complet ? (
-                    <button disabled className="w-full bg-white/5 text-gray-600 py-4 rounded-xl font-bold uppercase tracking-widest text-xs border border-white/5 cursor-not-allowed">Complet</button>
+                    <button disabled className="w-full bg-white/5 text-gray-600 py-4 rounded-xl font-bold uppercase tracking-widest text-xs border border-white/5 cursor-not-allowed">{t('sl.complet')}</button>
                   ) : (
                     <Link href={`/reserver/${s.id}`}
                       className="w-full bg-brand-red hover:bg-red-600 text-white font-bold py-4 rounded-xl text-center transition-all hover:scale-105 active:scale-95 shadow-xl shadow-brand-red/20 text-sm">
-                      Réserver →
+                      {t('sl.book')}
                     </Link>
                   )}
                 </div>

@@ -1,12 +1,14 @@
 'use client'
 import { motion } from 'framer-motion'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function HowItWorks() {
+  const { t, language, switchLanguage } = useTranslation()
   const steps = [
-    { n: '01', icon: '📅', title: 'Choisissez votre date', desc: 'Consultez les prochaines sorties et sélectionnez celle qui vous convient.' },
-    { n: '02', icon: '💳', title: 'Réservez en ligne', desc: 'Payez votre place en ligne par carte bancaire ou PayPal. Simple, rapide, sécurisé.' },
-    { n: '03', icon: '📍', title: 'Montez à bord', desc: 'Retrouvez-nous à votre point de départ choisi : Montpellier, Sète ou Béziers.' },
-    { n: '04', icon: '🛒', title: 'Faites vos emplettes', desc: 'Profitez de la journée pour faire vos achats en Espagne à des prix imbattables.' },
+    { n: '01', icon: '📅', title: t('how.step1.title'), desc: t('how.step1.desc') },
+    { n: '02', icon: '💳', title: t('how.step2.title'), desc: t('how.step2.desc') },
+    { n: '03', icon: '📍', title: t('how.step3.title'), desc: t('how.step3.desc') },
+    { n: '04', icon: '🛒', title: t('how.step4.title'), desc: t('how.step4.desc') },
   ]
 
   const stops = [
@@ -14,7 +16,7 @@ export default function HowItWorks() {
     { ville: 'Sète', heure: '08h30', flag: '⚓' },
     { ville: 'Béziers', heure: '09h00', flag: '🏛️' },
     { ville: 'La Jonquera', heure: '~10h15', flag: '🇪🇸' },
-    { ville: 'Retour', heure: '~20h15', flag: '🏠' },
+    { ville: t('how.departure'), heure: '~20h15', flag: '🏠' },
   ]
 
   return (
@@ -27,7 +29,7 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             className="text-brand-red font-semibold tracking-widest uppercase text-sm mb-3"
           >
-            Simple comme bonjour
+            {t('how.simple')}
           </motion.p>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -35,7 +37,7 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             className="font-display text-5xl md:text-7xl text-white"
           >
-            COMMENT ÇA MARCHE ?
+            {t('how.title')}
           </motion.h2>
         </div>
 
@@ -64,7 +66,7 @@ export default function HowItWorks() {
           className="mt-16 bg-brand-card rounded-3xl p-8 border border-white/5 relative overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-orange to-brand-red opacity-20" />
-          <h3 className="font-display text-3xl text-white mb-10 text-center">L'ITINÉRAIRE TYPE</h3>
+          <h3 className="font-display text-3xl text-white mb-10 text-center">{t('how.itinerary')}</h3>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
             {stops.map((stop, i, arr) => (

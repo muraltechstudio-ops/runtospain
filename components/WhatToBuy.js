@@ -1,53 +1,55 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Wine, Shirt, Sparkles, ShoppingBag, UtensilsCrossed, Package } from 'lucide-react'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function WhatToBuy() {
+  const { t } = useTranslation()
   const categories = [
     {
       icon: <Package size={40} />,
-      title: 'Tabac',
-      desc: 'Cigarettes, tabac à rouler',
+      title: t('wtb.category.tabac'),
+      desc: t('wtb.category.tabac.desc'),
       savings: '-50%',
       color: 'from-amber-500/20 to-orange-500/20',
       iconColor: 'text-amber-400'
     },
     {
       icon: <Wine size={40} />,
-      title: 'Vins & Alcools',
-      desc: 'Vins espagnols, spiritueux, bières',
+      title: t('wtb.category.alcool'),
+      desc: t('wtb.category.alcool.desc'),
       savings: '-30%',
       color: 'from-purple-500/20 to-pink-500/20',
       iconColor: 'text-purple-400'
     },
     {
       icon: <Sparkles size={40} />,
-      title: 'Parfums & Cosmétiques',
-      desc: 'Grandes marques à prix cassés',
+      title: t('wtb.category.parfum'),
+      desc: t('wtb.category.parfum.desc'),
       savings: '-50%',
       color: 'from-pink-500/20 to-rose-500/20',
       iconColor: 'text-pink-400'
     },
     {
       icon: <ShoppingBag size={40} />,
-      title: 'Lessive & Maison',
-      desc: 'Produits ménagers, entretien',
+      title: t('wtb.category.lessive'),
+      desc: t('wtb.category.lessive.desc'),
       savings: '-40%',
       color: 'from-blue-500/20 to-cyan-500/20',
       iconColor: 'text-blue-400'
     },
     {
       icon: <UtensilsCrossed size={40} />,
-      title: 'Viande & Charcuterie',
-      desc: 'Jambon, chorizo, spécialités',
+      title: t('wtb.category.viande'),
+      desc: t('wtb.category.viande.desc'),
       savings: '-50%',
       color: 'from-red-500/20 to-brand-red/20',
       iconColor: 'text-red-400'
     },
     {
       icon: <Shirt size={40} />,
-      title: 'Mode & Divers',
-      desc: 'Vêtements, accessoires, high-tech',
+      title: t('wtb.category.mode'),
+      desc: t('wtb.category.mode.desc'),
       savings: 'Variable',
       color: 'from-green-500/20 to-emerald-500/20',
       iconColor: 'text-green-400'
@@ -66,7 +68,7 @@ export default function WhatToBuy() {
             viewport={{ once: true }}
             className="text-brand-orange font-semibold tracking-widest uppercase text-sm mb-3"
           >
-            Économisez jusqu'à -60%
+            {t('wtb.save')}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -75,7 +77,7 @@ export default function WhatToBuy() {
             transition={{ delay: 0.1 }}
             className="font-display text-5xl md:text-7xl text-white mb-6"
           >
-            QUE PEUT-ON ACHETER ?
+            {t('wtb.title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -84,8 +86,7 @@ export default function WhatToBuy() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 text-lg max-w-2xl mx-auto"
           >
-            Des centaines de boutiques vous attendent à La Jonquera et au Mercado El Pertús.
-            Tout pour usage personnel, dans les limites légales.
+            {t('wtb.desc')}
           </motion.p>
         </div>
 
@@ -114,7 +115,7 @@ export default function WhatToBuy() {
                   <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-bold">
                     {cat.savings}
                   </span>
-                  <span className="text-gray-500 text-xs">vs France</span>
+                  <span className="text-gray-500 text-xs">{t('pjk.compare.france')}</span>
                 </div>
               </div>
             </motion.div>
@@ -128,9 +129,7 @@ export default function WhatToBuy() {
           className="mt-12 bg-brand-red/10 border border-brand-red/20 rounded-2xl p-6 text-center"
         >
           <p className="text-white text-sm">
-            <span className="font-bold text-brand-red">⚠️ Important :</span> Respectez les limites légales pour le tabac et l'alcool lors du passage en douane.
-            <br />
-            <span className="text-gray-400 text-xs">Consultez les quantités autorisées avant votre départ.</span>
+            <span className="font-bold text-brand-red">⚠️ {t('wtb.warning')}</span>
           </p>
         </motion.div>
       </div>

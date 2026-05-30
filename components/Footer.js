@@ -1,9 +1,11 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { MessageCircle, Mail, HelpCircle, ChevronRight, Phone } from 'lucide-react'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function Footer() {
+  const { t, language, switchLanguage } = useTranslation()
   const WA_NUMBER = '33636226987'
   const WA_MSG = encodeURIComponent("Bonjour, je souhaite réserver une place pour une excursion en Espagne !")
   const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`
@@ -22,10 +24,10 @@ export default function Footer() {
           >
             <div className="flex items-center gap-4">
               <div className="w-8 h-px bg-brand-red" />
-              <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase">Une question ?</span>
+              <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase">{t('footer.ctaQuestion')}</span>
               <div className="w-8 h-px bg-brand-red" />
             </div>
-            <h2 className="font-display text-5xl md:text-7xl text-white">ON VOUS RÉPOND</h2>
+            <h2 className="font-display text-5xl md:text-7xl text-white">{t('footer.ctaTitle')}</h2>
           </motion.div>
 
           <motion.p
@@ -35,7 +37,7 @@ export default function Footer() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 mb-10 text-lg"
           >
-            Notre équipe est disponible 7j/7 pour vous accompagner.
+            {t('footer.ctaDesc')}
           </motion.p>
 
           <motion.div
@@ -48,17 +50,17 @@ export default function Footer() {
             <a href={WA_URL} target="_blank" rel="noopener noreferrer"
               className="group flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all hover:scale-105 shadow-xl shadow-green-600/20">
               <MessageCircle size={24} className="group-hover:rotate-12 transition-transform" />
-              WhatsApp
+              {t('footer.whatsapp')}
             </a>
             <a href="mailto:contact@runtospain.com"
               className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all hover:border-white/20">
               <Mail size={24} />
-              Email
+              {t('footer.email')}
             </a>
             <a href="tel:+33636226987"
               className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all hover:border-white/20">
               <Phone size={24} />
-              Téléphone
+              {t('footer.phone')}
             </a>
           </motion.div>
 
@@ -70,15 +72,15 @@ export default function Footer() {
           >
             <div className="flex items-center gap-3 mb-8">
               <HelpCircle className="text-brand-red" />
-              <h3 className="font-display text-3xl text-white">FAQ RAPIDE</h3>
+              <h3 className="font-display text-3xl text-white">{t('footer.faq')}</h3>
             </div>
             <div className="space-y-4">
               {[
-                { q: 'Que puis-je acheter en Espagne ?', r: 'Tout ce que vous voulez pour usage personnel : vêtements, alimentation, cosmétiques, électronique, alcool et tabac dans les limites légales.' },
-                { q: 'Quelles sont les limites douanières ?', r: 'Tabac : 4 cartouches de cigarettes OU 1kg de tabac à rouler. Alcool : 10L de vin OU 20L de spiritueux. IMPORTANT : Ne pas dépasser ces limites pour éviter le blocage du véhicule et perturber le voyage des autres personnes !' },
-                { q: 'Les courses sont-elles incluses ?', r: 'Non, le prix de 49 € couvre uniquement le transport A/R. Vos achats sont à votre charge.' },
-                { q: 'Puis-je annuler ma réservation ?', r: 'Oui, remboursement intégral jusqu\'à 7 jours avant la sortie. Voir nos CGV pour le détail.' },
-                { q: 'Le conducteur est-il professionnel ?', r: 'Oui, titulaire du permis D international et carte VTC. Vous êtes en sécurité.' },
+                { q: t('footer.faq.q0'), r: t('footer.faq.r0') },
+                { q: t('footer.faq.q1'), r: t('footer.faq.r1') },
+                { q: t('footer.faq.q2'), r: t('footer.faq.r2') },
+                { q: t('footer.faq.q3'), r: t('footer.faq.r3') },
+                { q: t('footer.faq.q4'), r: t('footer.faq.r4') },
               ].map((item, i) => (
                 <details key={i} className="group border-b border-white/5 pb-4 last:border-0 last:pb-0">
                   <summary className="text-gray-300 cursor-pointer list-none flex items-center justify-between hover:text-white transition font-bold text-sm">
@@ -109,26 +111,26 @@ export default function Footer() {
             </Link>
 
             <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase font-bold tracking-[0.2em] text-gray-500">
-              <Link href="/cgv" className="hover:text-brand-red transition-colors">CGV</Link>
-              <Link href="/contact" className="hover:text-brand-red transition-colors">Contact</Link>
-              <Link href="/sorties" className="hover:text-brand-red transition-colors">Réserver</Link>
+              <Link href="/cgv" className="hover:text-brand-red transition-colors">{t('footer.cgv')}</Link>
+              <Link href="/contact" className="hover:text-brand-red transition-colors">{t('footer.contact')}</Link>
+              <Link href="/sorties" className="hover:text-brand-red transition-colors">{t('footer.book')}</Link>
             </div>
           </div>
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5 text-gray-600 text-[10px] uppercase font-bold tracking-widest">
-            <p>© 2026 RunToSpain · Montpellier, Sète & Béziers</p>
-            <p>Conçu avec passion pour le shopping 🇪🇸</p>
+            <p>{t('footer.copyright')}</p>
+            <p>{t('footer.madeWith')}</p>
           </div>
         </div>
       </footer>
 
-      {/* WhatsApp Floating Button */}
+      {/* {t('footer.whatsapp')} Floating Button */}
       <a href={WA_URL} target="_blank" rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 bg-green-500 hover:bg-green-400 text-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl shadow-green-500/30 transition-all hover:scale-110 active:scale-95 group"
-        title="WhatsApp">
+        title="{t('footer.whatsapp')}">
         <MessageCircle size={32} className="group-hover:rotate-12 transition-transform" />
         <span className="absolute right-full mr-4 bg-brand-card text-white px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-white/10 shadow-2xl pointer-events-none">
-          Une question ? Écrivez-nous !
+          {t('footer.ctaQuestion')} Écrivez-nous !
         </span>
       </a>
     </>

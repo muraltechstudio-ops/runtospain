@@ -2,8 +2,10 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function Gallery() {
+  const { t } = useTranslation()
   const [selectedImage, setSelectedImage] = useState(null)
 
   const images = [
@@ -51,7 +53,7 @@ export default function Gallery() {
             viewport={{ once: true }}
             className="text-brand-red font-semibold tracking-widest uppercase text-sm mb-3"
           >
-            Découvrez La Jonquera
+            {t('gallery.subtitle')}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +62,7 @@ export default function Gallery() {
             transition={{ delay: 0.1 }}
             className="font-display text-5xl md:text-7xl text-white"
           >
-            LE PARADIS DU SHOPPING
+            {t('gallery.title')}
           </motion.h2>
         </div>
 

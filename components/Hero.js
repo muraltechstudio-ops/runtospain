@@ -4,8 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 import Particles from './Particles'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function Hero() {
+  const { t, language, switchLanguage } = useTranslation()
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -45,7 +47,7 @@ export default function Hero() {
           >
             <div className="w-10 h-0.5 bg-brand-red" />
             <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase bg-black/40 backdrop-blur px-2 py-1">
-              Excursion à la journée · Chaque dimanche
+              {t('hero.tagline')}
             </span>
           </motion.div>
 
@@ -56,10 +58,10 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="font-display leading-[0.9] mb-6"
           >
-            <span className="block text-[clamp(3.5rem,9vw,7rem)] text-white drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>L'ESPAGNE</span>
-            <span className="block text-[clamp(3.5rem,9vw,7rem)] text-brand-red drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>EN UN JOUR</span>
+            <span className="block text-[clamp(3.5rem,9vw,7rem)] text-white drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>{t('hero.spain')}</span>
+            <span className="block text-[clamp(3.5rem,9vw,7rem)] text-brand-red drop-shadow-2xl" style={{textShadow:'2px 2px 20px rgba(0,0,0,0.8)'}}>{t('hero.oneDay')}</span>
             <span className="block text-[clamp(1.2rem,3vw,2rem)] text-white font-body font-normal tracking-widest mt-3 drop-shadow-xl" style={{textShadow:'1px 1px 10px rgba(0,0,0,0.9)'}}>
-              La Jonquera · Mercado El Pertús
+              {t('hero.subtitle')}
             </span>
           </motion.h1>
 
@@ -70,9 +72,7 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="text-white text-lg leading-relaxed mb-8 max-w-xl bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-white/10"
           >
-            Partez faire vos courses en Espagne depuis <strong>Montpellier, Sète ou Béziers</strong>.
-            Alcools, parfums, vêtements, électronique… jusqu'à <strong className="text-brand-orange">-60% moins cher</strong> qu'en France.
-            Retour le soir, zéro stress.
+            {t('hero.description')}
           </motion.p>
 
           <motion.div
@@ -83,7 +83,7 @@ export default function Hero() {
             className="flex items-end gap-4 mb-8"
           >
             <div className="bg-black/40 backdrop-blur p-4 rounded-2xl border border-white/10">
-              <div className="text-gray-300 text-xs tracking-widest uppercase mb-1">Prix unique A/R</div>
+              <div className="text-gray-300 text-xs tracking-widest uppercase mb-1">{t('hero.priceLabel')}</div>
               <div className="font-display text-9xl text-white leading-none drop-shadow-2xl">
                 <motion.span
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -110,7 +110,7 @@ export default function Hero() {
               </div>
             </div>
             <div className="pb-4 text-white text-sm leading-relaxed drop-shadow-xl font-bold">
-              Bagages<br/>inclus<br/>✓
+              {t('hero.baggage')}
             </div>
           </motion.div>
 
@@ -123,12 +123,12 @@ export default function Hero() {
           >
             <Link href="/sorties"
               className="bg-brand-red hover:bg-red-700 text-white font-bold px-10 py-4 text-lg transition-all hover:scale-105 shadow-2xl text-center rounded-xl">
-              Voir les prochaines sorties →
+              {t('hero.seeTrips')}
             </Link>
             <a href="https://wa.me/33636226987?text=Bonjour%2C%20je%20voudrais%20réserver%20une%20place"
               target="_blank" rel="noopener noreferrer"
               className="border-2 border-white/20 hover:border-white text-white font-semibold px-10 py-4 text-lg transition-all text-center flex items-center justify-center gap-2 backdrop-blur-sm bg-white/5 rounded-xl">
-              💬 Réserver par WhatsApp
+              {t('hero.bookWhatsApp')}
             </a>
           </motion.div>
 
@@ -140,10 +140,10 @@ export default function Hero() {
             className="flex flex-wrap gap-3"
           >
             {[
-              { icon: '🛡️', text: 'Permis D International' },
-              { icon: '💳', text: 'Paiement Stripe & PayPal' },
-              { icon: '↩️', text: 'Remboursé si annulation' },
-              { icon: '⭐', text: '4.9/5 — 47 avis' },
+              { icon: '🛡️', text: t('hero.badge.permis') },
+              { icon: '💳', text: t('hero.badge.payment') },
+              { icon: '↩️', text: t('hero.badge.refund') },
+              { icon: '⭐', text: t('hero.badge.rating') },
             ].map(b => (
               <div key={b.text} className="flex items-center gap-2 bg-black/50 backdrop-blur px-3 py-2 border border-white/10 rounded-lg">
                 <span className="text-sm">{b.icon}</span>
@@ -160,7 +160,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <div className="w-px h-10 bg-gradient-to-b from-transparent to-white/50" />
-        <span className="text-white/50 text-xs tracking-widest uppercase">Découvrir</span>
+        <span className="text-white/50 text-xs tracking-widest uppercase">{t('hero.scroll')}</span>
       </motion.div>
     </section>
   )

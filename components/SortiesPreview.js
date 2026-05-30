@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { getSortiesDisponibles } from '../lib/sorties'
+import { useTranslation } from '../lib/useTranslation'
 
 const container = {
   hidden: { opacity: 0 },
@@ -19,7 +20,8 @@ const item = {
 }
 
 export default function SortiesPreview() {
-  const sorties = getSortiesDisponibles().slice(0, 3)
+  const { t } = useTranslation()
+  const sorties = getSortiesDisponibles()
 
   return (
     <section id="sorties" className="py-24 px-4 bg-brand-dark relative overflow-hidden">
@@ -33,7 +35,7 @@ export default function SortiesPreview() {
             viewport={{ once: true }}
             className="text-brand-red font-semibold tracking-widest uppercase text-sm mb-3"
           >
-            Places limitées
+            {t('sp.limited')}
           </motion.p>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +44,7 @@ export default function SortiesPreview() {
             transition={{ delay: 0.1 }}
             className="font-display text-5xl md:text-7xl text-white"
           >
-            PROCHAINES SORTIES
+            {t('sp.title')}
           </motion.h2>
         </div>
 
@@ -69,7 +71,7 @@ export default function SortiesPreview() {
                     <span className="text-white font-bold">{s.label}</span>
                     {urgence && (
                       <span className="bg-brand-red text-white text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded-full pulse-red">
-                        Dernières places !
+                        {t('sp.lastSeats')}
                       </span>
                     )}
                   </div>
@@ -95,7 +97,7 @@ export default function SortiesPreview() {
 
                   <div className="mb-6">
                     <div className="flex justify-between text-xs text-gray-500 mb-2">
-                      <span>Disponibilité</span>
+                      <span>{t('sp.availability')}</span>
                       <span className={urgence ? 'text-brand-red font-bold' : 'text-green-400 font-medium'}>
                         {s.placesRestantes} places dispos
                       </span>
@@ -113,12 +115,12 @@ export default function SortiesPreview() {
 
                   <div className="flex items-center justify-between pt-4 border-t border-white/5">
                     <div className="flex flex-col">
-                      <span className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">A/R par pers.</span>
+                      <span className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">{t('sp.pricePerPerson')}</span>
                       <span className="font-display text-4xl text-white">{s.prix}€</span>
                     </div>
                     <Link href={`/reserver/${s.id}`}
                       className="bg-brand-red hover:bg-red-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-red/20">
-                      Réserver →
+                      {t('sp.book')}
                     </Link>
                   </div>
                 </div>
@@ -130,7 +132,7 @@ export default function SortiesPreview() {
         <div className="text-center">
           <Link href="/sorties"
             className="inline-flex items-center gap-2 border border-white/10 hover:border-white/20 hover:bg-white/5 text-white px-8 py-3 rounded-xl transition-all">
-            Voir toutes les dates →
+            {t('sp.seeAll')}
           </Link>
         </div>
       </div>

@@ -1,13 +1,15 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Armchair, Snowflake, Users, Shield } from 'lucide-react'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function BusPhotos() {
+  const { t } = useTranslation()
   const features = [
-    { icon: <Users size={24} />, label: 'Minibus 9 places', desc: 'Groupe convivial et intimiste' },
-    { icon: <Armchair size={24} />, label: 'Sièges confort', desc: 'Confortables et spacieux' },
-    { icon: <Snowflake size={24} />, label: 'Climatisation', desc: 'Température contrôlée' },
-    { icon: <Shield size={24} />, label: 'Assurance pro', desc: 'Couverture complète' },
+    { icon: <Users size={24} />, label: t('bus.seats'), desc: t('bus.seatsDesc') },
+    { icon: <Armchair size={24} />, label: t('bus.sieges'), desc: t('bus.siegesDesc') },
+    { icon: <Snowflake size={24} />, label: t('bus.clim'), desc: t('bus.climDesc') },
+    { icon: <Shield size={24} />, label: t('bus.assurance'), desc: t('bus.assuranceDesc') },
   ]
 
   return (
@@ -22,7 +24,7 @@ export default function BusPhotos() {
             viewport={{ once: true }}
             className="text-brand-orange font-semibold tracking-widest uppercase text-sm mb-3"
           >
-            Voyagez confortablement
+            {t('bus.subtitle')}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +33,7 @@ export default function BusPhotos() {
             transition={{ delay: 0.1 }}
             className="font-display text-5xl md:text-7xl text-white"
           >
-            NOTRE MINIBUS
+            {t('bus.title')}
           </motion.h2>
         </div>
 
@@ -42,7 +44,7 @@ export default function BusPhotos() {
           viewport={{ once: true }}
           className="bg-brand-dark rounded-3xl p-8 border border-white/5 mb-8"
         >
-          <h3 className="font-display text-3xl text-white text-center mb-10">CONFORT & CONVIVIALITÉ</h3>
+          <h3 className="font-display text-3xl text-white text-center mb-10">{t('bus.comfort')}</h3>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {features.map((feat, i) => (
@@ -74,8 +76,8 @@ export default function BusPhotos() {
             <div className="inline-flex items-center gap-3 bg-brand-red/10 border border-brand-red/20 rounded-xl px-6 py-3">
               <span className="text-6xl">🚐</span>
               <div className="text-left">
-                <div className="text-white font-bold text-lg">Minibus 9 places</div>
-                <div className="text-gray-400 text-xs">Ambiance conviviale en petit groupe</div>
+                <div className="text-white font-bold text-lg">{t('bus.seats')}</div>
+                <div className="text-gray-400 text-xs">{t('bus.caption')}</div>
               </div>
             </div>
           </motion.div>
@@ -90,11 +92,11 @@ export default function BusPhotos() {
         >
           <div className="text-6xl">👨‍✈️</div>
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-white font-bold text-xl mb-2">Chauffeur professionnel certifié</h3>
+            <h3 className="text-white font-bold text-xl mb-2">{t('bus.driverTitle')}</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Permis D International · Carte VTC · Plus de 10 ans d'expérience
+              {t('bus.driverCreds')}
               <br />
-              <span className="text-brand-orange font-semibold">Votre sécurité est notre priorité</span>
+              <span className="text-brand-orange font-semibold">{t('bus.driverSafety')}</span>
             </p>
           </div>
         </motion.div>

@@ -1,8 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
 import { MapPin, Clock, Navigation } from 'lucide-react'
+import { useTranslation } from '../lib/useTranslation'
 
 export default function RouteMap() {
+  const { t } = useTranslation()
   const stops = [
     {
       ville: 'Montpellier',
@@ -58,7 +60,7 @@ export default function RouteMap() {
           >
             <Navigation className="text-brand-red" size={20} />
             <span className="text-brand-red font-semibold tracking-widest uppercase text-sm">
-              Votre trajet en détail
+              {t('map.detail')}
             </span>
           </motion.div>
           <motion.h2
@@ -68,7 +70,7 @@ export default function RouteMap() {
             transition={{ delay: 0.1 }}
             className="font-display text-5xl md:text-7xl text-white"
           >
-            L'ITINÉRAIRE
+            {t('map.title')}
           </motion.h2>
         </div>
 
@@ -115,7 +117,7 @@ export default function RouteMap() {
                     </div>
                     {stop.isDestination && (
                       <div className="mt-3 bg-brand-red/20 text-brand-red px-3 py-1 rounded-full text-xs font-bold">
-                        7h sur place
+                        {t('map.timeOnSite')}
                       </div>
                     )}
                   </motion.div>
@@ -166,11 +168,11 @@ export default function RouteMap() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <div className="text-6xl">🏠</div>
             <div className="text-left">
-              <h3 className="text-white font-bold text-xl mb-2">Retour prévu à 20h15</h3>
+              <h3 className="text-white font-bold text-xl mb-2">{t('map.return')}</h3>
               <p className="text-gray-400 text-sm">
-                Départ de La Jonquera à 18h00 · Arrivée à Montpellier vers 20h15
+                {t('map.returnDetail')}
                 <br />
-                <span className="text-brand-orange font-semibold">7h sur place pour profiter pleinement !</span>
+                <span className="text-brand-orange font-semibold">{t('map.timeOnSite')}</span>
               </p>
             </div>
           </div>
@@ -186,17 +188,17 @@ export default function RouteMap() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <div className="text-6xl">🍽️</div>
             <div className="text-left flex-1">
-              <h3 className="text-white font-bold text-xl mb-2">Déjeuner sur place</h3>
+              <h3 className="text-white font-bold text-xl mb-2">{t('map.lunch')}</h3>
               <p className="text-gray-400 text-sm mb-3">
-                Déjeuner libre ou optez pour le buffet à volonté
+                {t('map.lunchDesc')}
               </p>
               <div className="bg-brand-orange/10 border border-brand-orange/20 rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-brand-orange font-bold text-2xl">23€</span>
-                  <span className="text-white text-sm font-semibold">par personne</span>
+                  <span className="text-brand-orange font-bold text-2xl">{t('map.lunchPrice')}</span>
+                  <span className="text-white text-sm font-semibold">{t('map.perPerson')}</span>
                 </div>
                 <p className="text-gray-400 text-xs">
-                  Buffet à volonté avec énormément de choix · Vin et boissons inclus
+                  {t('map.lunchDetail')}
                 </p>
               </div>
             </div>
