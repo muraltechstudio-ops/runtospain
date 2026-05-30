@@ -21,17 +21,28 @@ export default function CGVPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-24 pb-20 px-4 bg-brand-dark">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-14">
-            <h1 className="font-display text-6xl text-white mb-2">CONDITIONS<br/>GÉNÉRALES DE VENTE</h1>
-            <p className="text-gray-500 text-sm">RunToSpain — Transport occasionnel — 2026</p>
+      <main className="min-h-screen pt-32 pb-20 px-4 bg-brand-dark relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-brand-red/5 blur-[120px] rounded-full -z-10" />
+        
+        <div className="max-w-3xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="w-8 h-px bg-brand-red" />
+              <span className="text-brand-red text-xs font-bold tracking-[0.3em] uppercase">Document légal</span>
+              <div className="w-8 h-px bg-brand-red" />
+            </div>
+            <h1 className="font-display text-6xl md:text-8xl text-white leading-none">CONDITIONS<br/>GÉNÉRALES</h1>
+            <p className="text-gray-500 text-sm mt-4 uppercase font-bold tracking-widest">RunToSpain · Transport occasionnel · 2026</p>
           </div>
-          <div className="space-y-6">
+          
+          <div className="space-y-4">
             {articles.map((art, i) => (
-              <div key={i} className="bg-brand-card rounded-2xl p-6 border border-white/5">
-                <h2 className="font-bold text-white mb-3">{art.titre}</h2>
-                <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">{art.contenu}</p>
+              <div key={i} className="bg-brand-card rounded-2xl p-8 border border-white/5 hover:border-white/10 transition-colors">
+                <h2 className="font-bold text-white text-lg mb-4 flex items-center gap-3">
+                  <span className="w-1 h-4 bg-brand-red rounded-full" />
+                  {art.titre}
+                </h2>
+                <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line pl-4 border-l border-white/5">{art.contenu}</p>
               </div>
             ))}
           </div>
